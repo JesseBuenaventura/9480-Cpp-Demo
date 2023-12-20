@@ -156,7 +156,9 @@ void reserveSlot(vector<Slot>& slots, int idNumber) {
         }
     }
 }
-
+/**
+ * Function that lets the user change their reserved slot number
+*/
 void changeReservationSlot(vector<Slot>& slots, int idNumber) {
     bool checkReservations = false;
     bool newReservation = false;
