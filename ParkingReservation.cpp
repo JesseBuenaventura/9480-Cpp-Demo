@@ -159,18 +159,22 @@ void reserveSlot(vector<Slot>& slots, int idNumber) {
 /**
  * Function that lets the user change their reserved slot number
 */
-void changeReservationSlot(vector<Slot>& slots, int idNumber) {
+void changeReservationSlot(vector<Slot>& slots, int idNumber) 
+{
     bool checkReservations = false;
     bool newReservation = false;
 
-    for (const Slot& slot : slots) {
-        if (!slot.isAvailable && slot.reservation.idNumber == idNumber) {
+    for (const Slot& slot : slots) 
+    {
+        if (!slot.isAvailable && slot.reservation.idNumber == idNumber) 
+        {
             checkReservations = true;
             break;
         }
     }
 
-    if (!checkReservations) {
+    if (!checkReservations) 
+    {
         cout << "You did not reserve a slot yet!" << endl;
         return;
     }
@@ -179,15 +183,18 @@ void changeReservationSlot(vector<Slot>& slots, int idNumber) {
     int currentSlot;
     cin >> currentSlot;
 
-    for (Slot& slot : slots) {
-        if (!slot.isAvailable && slot.reservation.idNumber == idNumber && slot.slotNumber == currentSlot) {
+    for (Slot& slot : slots) 
+    {
+        if (!slot.isAvailable && slot.reservation.idNumber == idNumber && slot.slotNumber == currentSlot) 
+        {
             slot.isAvailable = true;
 
             cout << "Enter the new slot number: ";
             int newSlot;
             cin >> newSlot;
 
-            if (slots[newSlot - 1].isAvailable) {
+            if (slots[newSlot - 1].isAvailable) 
+            {
                 slot.slotNumber = newSlot;
                 slot.reservation.slotNumber = newSlot;
                 slot.isAvailable = false;
@@ -195,7 +202,9 @@ void changeReservationSlot(vector<Slot>& slots, int idNumber) {
                 cout << "Your reservation is moved to Slot " << newSlot << " successfully." << endl;
                 newReservation = true;
                 break;
-            } else {
+            } 
+            else 
+            {
                 cout << "Slot " << newSlot << " is already occupied. Please choose another slot." << endl;
                 newReservation = true;
                 break;
@@ -203,10 +212,12 @@ void changeReservationSlot(vector<Slot>& slots, int idNumber) {
         }
     }
 
-    if (!newReservation) {
+    if (!newReservation) 
+    {
         cout << "No reservation found for Slot " << currentSlot << ". Unable to change slot." << endl;
     }
 }
+
 
 /**
  * Function to display the reservation details of the user
