@@ -193,6 +193,14 @@ void changeReservationSlot(vector<Slot>& slots, int idNumber)
             int newSlot;
             cin >> newSlot;
 
+            //added this to check if the slot inputted is within the available slots
+            if (newSlot > slots.size() || newSlot <= 0) 
+            {
+                cout << "Invalid slot number. Please choose from the given slots available." << endl;
+                newReservation = true;
+                break;
+            }
+
             if (slots[newSlot - 1].isAvailable) 
             {
                 slot.slotNumber = newSlot;
